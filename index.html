@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang chủ</title>
+    <link rel="stylesheet" href="public/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body  onload="loadData()">
+    <header>
+        <div class="container">
+            <div class="col4">
+                <img src="public/img/CakePlus-logo.png" alt="">
+            </div>
+            <div class="col4">
+                <nav>
+                    <ul>
+                        <li><a href="">Trang chủ</a></li>
+                        <li><a href="">Sản phẩm</a></li>
+                        <li><a href="">Liên hệ</a></li>
+                        <li><a href="">Tin tức</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="col4">
+                <a href=""><i class="fa-solid fa-cart-shopping"></i><br>Giỏ hàng</a>
+                <ul>
+                    <i class="fa-solid fa-user"></i><br>Tài khoản
+                    <li>
+                        <ul>
+                            <li><a href="">Đăng nhập</a></li>
+                            <li><a href="">đăng ký</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="col3" id="menu">
+                <h2><i class="fa-solid fa-bars"></i> Danh mục sản phẩm</h2>
+                <hr>
+                <ul id="categories">
+                    
+                    <!-- show categories -->
+                </ul>
+            </div>
+            <div class="col9" id="banner">
+                <button class="left"><i class="fa-solid fa-arrow-left"></i></button>
+                <img src="public/img/banner.jpg" alt="banner" class="banner">
+                <button class="right"><i class="fa-solid fa-arrow-right"></i></button>
+            </div>
+        </div>
+        <div class="container">
+            <div class="col3" id="title">
+                <h1>Sản phẩm mới</h1>
+            </div>
+            <div class="col9" id="allProduct"">
+               <!-- show product -->
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <footer>
+            <div class="footer-container">
+                <!-- Logo và mô tả -->
+                <div class="footer-section about">
+                    <img src="public/img/CakePlus-amban.png" alt="Logo" class="logo">
+                    <p class="description">
+                        TFLower - Cửa hàng hoa uy tín, cung cấp đa dạng các loại hoa tươi đẹp, thiết kế tinh tế cho mọi
+                        dịp.
+                        Chúng tôi cam kết mang đến khách hàng hoa chất lượng và dịch vụ chu đáo.
+                    </p>
+                    <p class="hotline" style="color: #DC143C;">Hotline: <strong>0979451624</strong></p>
+                </div>
+                <!-- Liên kết nhanh -->
+                <div class="footer-section links">
+                    <h4 class="title">Liên kết nhanh</h4>
+                    <ul>
+                        <li><a href="#">Trang chủ</a></li>
+                        <li><a href="#">Sản phẩm</a></li>
+                        <li><a href="#">Khuyến mãi</a></li>
+                        <li><a href="#">Liên hệ</a></li>
+                        <li><a href="#">Chính sách bảo mật</a></li>
+                    </ul>
+                </div>
+                <!-- Liên hệ và mạng xã hội -->
+                <div class="footer-section contact">
+                    <h4 class="title">Liên hệ</h4>
+                    <p>Email: cakeplus@gmail.com</p>
+                    <p>Địa chỉ: 123 Đường bánh, TP. Hồ Chí Minh</p>
+                    <div class="social-media">
+                        <a href="#" class="social-link"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="#" class="social-link"><i class="fa-brands fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fa-brands fa-youtube"></i></a>
+                        <a href="#" class="social-link"><i class="fa-brands fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </footer>
+</body>
+
+</html>
+<script src="js/main.js"></script>

@@ -1,0 +1,342 @@
+:root{
+    --main-color: #FFF8E1;
+    --text-color: #8B4513;
+    --hover-color:#FFD700;
+    --button-color:#FFB6C1;
+    --hightlight-color:#DC143C;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+a{
+    text-decoration: none;
+}
+header{
+    width: 100%;
+    background-color: var(--main-color);
+    
+}
+header .container{
+    width: 90%;
+    height: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+}
+header .container .col4{
+    width: 33.3%;
+    text-align: center;
+    height: 100%;
+}
+header .container .col4:last-child{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+header .container .col4:last-child a{
+    color: var(--text-color);
+    height: 50px;
+    width: 160px;
+    padding-top: 5px;
+    font-size: 16px;
+    text-align: center;
+    margin: 10px;
+    background-color: white;
+    border-radius: 10px;
+
+}
+header .container .col4:last-child a:hover{
+    background-color: var(--hover-color);
+}
+header .container .col4:last-child>ul:hover>li>ul{
+    display: block;
+    cursor: pointer;
+}
+header .container .col4:last-child>ul:hover{
+    cursor: pointer;
+}
+header .container .col4 ul li ul li:hover{
+    background-color: var(--hover-color);
+    border-radius: 10px;
+}
+header .container .col4 ul li ul li:hover>a{
+    background-color: var(--hover-color);
+}
+.col4 ul li{
+    list-style: none;
+}
+.col4 ul{
+    z-index: 10000;
+}
+.col4 ul li ul{
+    height: 100px;
+    margin-top: 4px;
+    display: none;
+    list-style: none;
+    background-color: white;
+    border-radius: 0px 0px 10px 10px;
+}
+.col4 ul li ul li{
+    height: 50px;
+    line-height: 50px;
+}
+header .container .col4:last-child>ul{
+    color: var(--text-color);
+    height: 50px;
+    width: 160px;
+    padding-top: 3px;
+    font-size: 16px;
+    text-align: center;
+    margin: 10px;
+    background-color: white;
+    border-radius: 10px;
+}
+header .col4 img{
+    height: 120px;
+}
+nav{
+    height: 100%;
+    line-height: 120px;
+}
+header .col4 nav ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    justify-content: center;
+    display: flex;
+}
+header .col4 nav ul li{
+    width: 100%;
+    text-align: center;
+}
+header .col4 nav ul li a{
+    font-size: 18px;
+    font-weight: bolder;
+    font-family: sans-serif;
+    color: var(--text-color);
+}
+header .col4 nav ul li a:hover{
+    color: var(--hover-color);
+}
+
+
+/* main */
+main{
+    margin-bottom: 10px;
+}
+main .container{
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 10px;
+    display: flex;
+}
+main .container #menu{
+    width: 25%;
+    box-shadow: 3px 3px 6px 3px gray;
+    height: 330px;
+    background-color: #fff;
+}
+main .container .col9{
+    width: 75%;
+}
+main .container .col3{
+    width: 25%;
+}
+main .container .col3 h2{
+    text-align: center;
+    height: 50px;
+    line-height: 50px;
+    background-color: var(--main-color);
+    text-transform: uppercase;
+}
+main .container .col3 ul{
+    list-style: none;
+}
+main .container .col3 ul li{
+    height: 36px;
+    padding-left: 9px;
+    border-bottom: 1px solid black;
+}
+main .container .col3 ul li a{
+    text-decoration: none;
+    line-height: 36px;
+    font-size: 19px;
+    color: #333;
+    font-family: sans-serif;
+}
+main .container .col3 ul li:hover{
+    background-color: var(--hover-color);
+}
+main .container #banner{
+    /* text-align: center; */
+    width: 75%;
+    /* height: 330px; */
+    display: flex;
+    position: relative;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+    z-index: 10;
+}
+main .container .col9{
+    /* text-align: center; */
+    width: 75%;
+    /* height: 330px; */
+    display: flex;
+    position: relative;
+    /* justify-content: center; */
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+    z-index: 10;
+}
+main .container .col9 img{
+    height: 330px;
+    width: 90%;
+}
+main .container .col9 .left{
+    position: absolute;
+    left: 66px;
+    top: 149px;
+    background-color: white;
+}
+main .container .col9 .right{
+    position: absolute;
+    right: 66px;
+    top: 149px;
+        background-color: white;
+}
+main .container .col9 button{
+    width: 36px;
+    height: 36px;
+    font-size: 20px;
+    border-radius: 10px;
+    border: 0 solid black;
+}
+
+main .container .col9 .cart{
+    width: 225px;
+    height: 300px;
+    margin: 10px 10px;
+    box-shadow: 3px 3px 6px 3px gray;
+    margin: 10px 10px;
+    background-color: var(--main-color);
+}
+main .container .col9 .cart img{
+    width: 100%;
+    height: 200px;
+}
+main .container .col9 .cart .info{
+    padding: 16px;
+}
+main .container .col9 .cart .info h3{
+    color: var(--text-color);
+    font-family: sans-serif;
+    padding: 5px;
+}
+main .container .col9 .cart .info h4{
+    color: var(--hightlight-color);
+    text-align: right;
+    font-family: sans-serif;
+}
+
+footer {
+    background-color: #333;
+    color: #f1f1f1;
+    padding: 40px 20px;
+    font-family: Arial, sans-serif;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 250px;
+    margin-bottom: 20px;
+}
+
+.footer-section.about .logo {
+    width: 120px;
+    margin-bottom: 15px;
+}
+
+.footer-section.about .description {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #cccccc;
+    margin-bottom: 10px;
+}
+
+.footer-section.about .hotline {
+    font-size: 16px;
+    color: var(--highlignt);
+    font-weight: bold;
+}
+
+.footer-section .title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #ffffff;
+    margin-bottom: 15px;
+}
+
+.footer-section.links ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section.links ul li {
+    margin-bottom: 8px;
+}
+
+.footer-section.links ul li a {
+    text-decoration: none;
+    color: #cccccc;
+    transition: color 0.3s;
+}
+
+.footer-section.links ul li a:hover {
+    color: var(--hoverColor);
+}
+
+.footer-section.contact p {
+    margin: 5px 0;
+}
+
+.footer-section.contact .social-media {
+    margin-top: 10px;
+}
+
+.footer-section.contact .social-link {
+    display: inline-block;
+    margin-right: 10px;
+    font-size: 20px;
+    color: #cccccc;
+    transition: color 0.3s;
+}
+
+.footer-section.contact .social-link:hover {
+    color: var(--hoverColor);
+}
+
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-section {
+        max-width: 100%;
+        margin-bottom: 30px;
+    }
+}
