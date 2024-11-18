@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    :root {
+      --main-color: #FFF8E1;
+      --text-color: #8B4513;
+      --hover-color: #FFD700;
+      --button-color: #FFB6C1;
+      --highlight-color: #DC143C;
+    }
+    body {
+      background-color: var(--main-color);
+      color: var(--text-color);
+    }
+    .navbar {
+      background-color: var(--highlight-color);
+    }
+    .navbar-brand, .nav-link {
+      color: var(--main-color) !important;
+    }
+    .nav-link:hover {
+      color: var(--hover-color) !important;
+    }
+    .card {
+      border: none;
+      background-color: var(--button-color);
+      transition: transform 0.3s;
+    }
+    .btn-primary {
+      background-color: var(--highlight-color);
+      border-color: var(--highlight-color);
+    }
+    .btn-primary:hover {
+      background-color: var(--hover-color);
+      border-color: var(--hover-color);
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#"><img style="width: 100px; height: 100px;" src="../public/img/CakePlus-logo.png" alt=""> Trang quản trị</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#">Cài đặt</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Đăng xuất</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Dashboard Content -->
+  <div class="container my-5">
+    <h1 class="text-center mb-4">Quản lý hệ thống</h1>
+    <div class="row g-4">
+      <!-- Quản lý sản phẩm -->
+      <div class="col-md-3">
+        <div class="card text-center">
+          <div class="card-body">
+            <h5 class="card-title">Quản lý sản phẩm</h5>
+            <p class="card-text">Thêm, sửa, xóa sản phẩm.</p>
+            <a href="products.html" class="btn btn-primary">Truy cập</a>
+          </div>
+        </div>
+      </div>
+      <!-- Quản lý danh mục -->
+      <div class="col-md-3">
+        <div class="card text-center">
+          <div class="card-body">
+            <h5 class="card-title">Quản lý danh mục</h5>
+            <p class="card-text">Quản lý các danh mục sản phẩm.</p>
+            <a href="categories.html" class="btn btn-primary">Truy cập</a>
+          </div>
+        </div>
+      </div>
+      <!-- Quản lý người dùng -->
+      <div class="col-md-3">
+        <div class="card text-center">
+          <div class="card-body">
+            <h5 class="card-title">Quản lý người dùng</h5>
+            <p class="card-text">Theo dõi và quản lý tài khoản.</p>
+            <a href="#" class="btn btn-primary">Truy cập</a>
+          </div>
+        </div>
+      </div>
+      <!-- Quản lý đơn hàng -->
+      <div class="col-md-3">
+        <div class="card text-center">
+          <div class="card-body">
+            <h5 class="card-title">Quản lý đơn hàng</h5>
+            <p class="card-text">Xử lý các đơn hàng.</p>
+            <a href="#" class="btn btn-primary">Truy cập</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
