@@ -2,67 +2,67 @@
     "products": [
         {
             "id": 1,
-            "name": "Bộ dụng cụ",
-            "price": 10000,
+            "name": "Rây lộc đa năng",
+            "price": 200000,
             "category": 1,
             "description": "",
-            "image": "bodungculambanh.jpg"
+            "image": "ray-loc-da-nang.jpg"
         },
         {
             "id": 2,
-            "name": "Product 2",
-            "price": 10000,
-            "category": 2,
+            "name": "Bát trộn bột inox 30cm",
+            "price": 80000,
+            "category": 1,
             "description": "",
-            "image": "product1.jpg"
+            "image": "bat-tron-bot-inox.jpg"
         },
         {
             "id": 3,
-            "name": "Product 3",
-            "price": 10000,
-            "category": 3,
+            "name": "Dao cắt bánh mì 12 inch",
+            "price": 45000,
+            "category": 1,
             "description": "",
-            "image": "product1.jpg"
+            "image": "dao-cat-banh-mi-12inch.jpg"
         },
         {
             "id": 4,
-            "name": "Product 4",
-            "price": 10000,
+            "name": "Chai đựng nước sốt miệng nhỏ",
+            "price": 25000,
             "category": 1,
             "description": "",
-            "image": "product1.jpg"
+            "image": "chai-dung-nuoc-sot-mieng-nho.jpg"
         },
         {
             "id": 5,
-            "name": "Product 5",
-            "price": 10000,
-            "category": 1,
+            "name": "Socola chip đen Vanhouten",
+            "price": 18000,
+            "category": 2,
             "description": "",
-            "image": "product1.jpg"
+            "image": "socola-chip.jpg"
         },
         {
             "id": 6,
-            "name": "Product 6",
-            "price": 10000,
-            "category": 1,
+            "name": "Hạt đường trang trí bánh 50g",
+            "price": 18000,
+            "category": 3,
             "description": "",
-            "image": "product1.jpg"
+            "image": "hat-duong.jpg"
         },
         {
             "id": 7,
-            "name": "Product 7",
-            "price": 10000,
-            "category": 1,
+            "name": "Hộp đựng bánh gato 15 cái",
+            "price": 30000,
+            "category": 4,
             "description": "",
-            "image": "product1.jpg"
+            "image": "hop-banh-gato.jpg"
         },
         {
             "id": 8,
-            "name": "Product 8",
-            "price": 10000,
-            "category": 1,
+            "name": "Sách hướng dẫn làm bánh",
+            "price": 150000,
+            "category": 5,
             "description": "",
-            "image": "product1.jpg"
+            "image": "sach-huong-dan-lam-banh.jpg"
         }
     ],
     "categories": [

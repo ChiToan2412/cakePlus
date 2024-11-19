@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,53 +15,68 @@
       --button-color: #FFB6C1;
       --highlight-color: #DC143C;
     }
+
     body {
       background-color: var(--main-color);
       color: var(--text-color);
     }
+
     .navbar {
       background-color: var(--highlight-color);
     }
-    .navbar-brand, .nav-link {
+
+    .navbar-brand,
+    .nav-link {
       color: var(--main-color) !important;
     }
+
     .nav-link:hover {
       color: var(--hover-color) !important;
     }
+
     .btn-primary {
       background-color: var(--highlight-color);
       border-color: var(--highlight-color);
     }
+
     .btn-primary:hover {
       background-color: var(--hover-color);
       border-color: var(--hover-color);
     }
+
     .card {
       border: none;
       background-color: var(--button-color);
     }
-    form{
-        box-shadow: 3px 3px 6px 3px gray;
-        padding: 10px;
-        margin-top: 6px;
-        border-radius: 5px;
-        background-color: white;
+
+    form {
+      box-shadow: 3px 3px 6px 3px gray;
+      padding: 10px;
+      margin-top: 6px;
+      border-radius: 5px;
+      background-color: white;
+    }
+
+    #allProduct {
+      line-height: 75px;
     }
   </style>
 </head>
-<body onload="startJs()">
+
+<body onload="startJsProducts()">
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">Admin Dashboard</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
-            <li class="nav-item">
-                <a class="nav-link" href="index.html">Trang chủ</a>
-              </li>
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Trang chủ</a>
+          </li>
           <li class="nav-item">
             <a class="nav-link" href="categories.html">Quản lý danh mục</a>
           </li>
@@ -84,7 +100,7 @@
         <thead class="table-dark">
           <tr>
             <th>ID</th>
-            <th>Hình</th>
+            <th>Hình anh</th>
             <th>Tên</th>
             <th>Mô tả</th>
             <th>Danh mục</th>
@@ -123,22 +139,23 @@
 
     <!-- Thêm sản phẩm -->
     <h2 class="text-center mt-5 mb-4">Thêm sản phẩm mới</h2>
-    <form>
+    <form action="../js/admin.js" name="uploadData" method="POST" enctype="multipart/form-data">
       <div class="row g-3">
         <div class="col-md-6">
-            <label for="productId" class="form-label">ID</label>
-            <input type="number" class="form-control" id="productId" placeholder="Nhập ID sản phẩm" required>
-          </div>
+          <label for="productId" class="form-label">ID</label>
+          <input type="number" class="form-control" id="productId" placeholder="Nhập ID sản phẩm" required>
+        </div>
         <!-- Tên sản phẩm -->
         <div class="col-md-6">
           <label for="productName" class="form-label">Tên sản phẩm</label>
           <input type="text" class="form-control" id="productName" placeholder="Nhập tên sản phẩm" required>
         </div>
-        <!-- Mô tả -->
-        <div class="col-md-6">
-          <label for="productDescription" class="form-label">Mô tả</label>
-          <input type="text" class="form-control" id="productDescription" placeholder="Nhập mô tả" required>
+    <div class="col-md-6">
+          <label for="productImage" class="form-label">Hình ảnh</label>
+          <input type="file" class="form-control" id="productImage" accept="image/*">
+
         </div>
+              <div class="col-md-3" ><img src="" alt="" id="img" width="100px" height="100px"></div>
         <!-- Danh mục -->
         <div class="col-md-6">
           <label for="productCategory" class="form-label">Danh mục</label>
@@ -154,20 +171,19 @@
           <label for="productPrice" class="form-label">Giá</label>
           <input type="number" class="form-control" id="productPrice" placeholder="Nhập giá sản phẩm" required>
         </div>
-        <!-- Hình ảnh -->
-        <div class="col-md-12">
-          <label for="productImage" class="form-label">Hình ảnh</label>
-          <input type="file" class="form-control" id="productImage" accept="image/*">
+        
+
+<div class="col-md-12">
+          <label for="productDescription" class="form-label">Mô tả</label>
+          <input type="text" class="form-control" id="productDescription" placeholder="Nhập mô tả" required>
         </div>
         <!-- Nút Thêm -->
         <div class="col-md-12 text-center">
-          <button type="submit" class="btn btn-primary mt-3">Thêm sản phẩm</button>
+          <input type="button" class="btn btn-primary mt-3" id="btn" value="AddProduct"></input>
         </div>
       </div>
     </form>
   </div>
-
-  <!-- Bootstrap JS -->
   <script src="../js/admin.js"></script>
 </body>
 </html>

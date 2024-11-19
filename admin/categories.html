@@ -36,8 +36,8 @@
       border-color: var(--hover-color);
     }
     .btn-danger {
-      background-color: var(--button-color);
-      border-color: var(--button-color);
+      background-color: var(--highlight-color);
+      border-color: var(--highlight-color);
     }
     form{
       width: 500px;
@@ -49,7 +49,7 @@
     }
   </style>
 </head>
-<body onload="startJs()">
+<body onload="startJsCategories()">
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg">
     <div class="container-fluid">
@@ -112,7 +112,7 @@
 
     <!-- Thêm danh mục -->
     <h2 class="text-center mt-5 mb-4">Thêm danh mục mới</h2>
-    <form>
+    <form action="../js/admin.js">
       <div class="row g-3">
         <div class="col-md-12">
             <label for="categoryId" class="form-label">ID</label>
@@ -125,7 +125,7 @@
         </div>
         <!-- Nút Thêm -->
         <div class="col-md-12 text-center">
-          <button type="submit" class="btn btn-primary mt-3">Thêm danh mục</button>
+          <input type="button" class="btn btn-primary mt-3" id="btn" value="Thêm danh mục"></input>
         </div>
       </div>
     </form>
