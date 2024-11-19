@@ -25,6 +25,7 @@ const loadProducts = async () => {
             `;
     }).join("");
 }
+
 const loadCategories = async () => {
     let response = await fetch(root + "categories");
     let categories = await response.json();
