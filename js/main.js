@@ -55,7 +55,7 @@ const getParamUrl = () => {
     }else{
         loadProducts();
     }
-}
+}                     
 const loadData = ()=>{
     getParamUrl();
     loadCategories();

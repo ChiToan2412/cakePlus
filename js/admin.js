@@ -8,18 +8,18 @@ const loadProducts = async () => {
     let products = await response.json();
 
     document.getElementById("allProduct").innerHTML = products.map((item)=>{
-        let price = item.price.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })
+        let price = parseInt(item.price).toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })
         return `
             <tr>
                 <td>${item.id}</td>
                 <td><img src="../public/img/${item.image}" alt="product-image" class="img-thumbnail" width="75px" height="75px"></td>
                 <td>${item.name}</td>
-                <td>${item.description}</td>
+                <td id="describe">${item.description}</td>
                 <td>${item.category}</td>
                 <td>${price}</td>
                 <td>
                 <button class="btn btn-sm btn-warning" onclick="handleButtonProduct(${item.id})">Sửa</button>
-                <button class="btn btn-sm btn-danger">Xóa</button>
+                <button class="btn btn-sm btn-danger" onclick="deleteProduct(${item.id})">Xóa</button>
                 </td>
             </tr>
             `;
@@ -43,17 +43,21 @@ const loadCategories = async () => {
     }).join("");
 }
 
+
 const handleButtonProduct = async (index = -1) => {
     let button = document.getElementById("btn");
     let res = await fetch(root + "products");
     let products = await res.json();
+    let product = products.filter((item)=>item.id == index);
     if(index != -1){  
-        document.getElementById("productId").value = products[index-1].id;
-        document.getElementById("productName").value = products[index-1].name;
-        document.getElementById("productPrice").value = products[index-1].price;
-        document.getElementById("productCategory").value = products[index-1].category;
-        document.getElementById("productDescription").value = products[index-1].description;
-        document.getElementById("img").src = "../public/img/"+products[index-1].image;
+        document.getElementById("productId").value = product[0].id;
+        document.getElementById("productName").value = product[0].name;
+        document.getElementById("productPrice").value = product[0].price;
+        document.getElementById("productCategory").value = product[0].category;
+        document.getElementById("productDescription").value = product[0].description;
+        document.getElementById("img").src = "../public/img/"+product[0].image;
+        // console.log(products);
+        console.log(product);
         button.value = "Sửa";
     }
     button.onclick = () => {
@@ -75,8 +79,9 @@ const handleButtonProduct = async (index = -1) => {
             "description": description,
             "image": img
         } 
+        console.log(newProduct);
         if(button.value == "AddProduct"){
-            let url = root + "products";
+            let url = root + "products/";
             let options = {
                 method: 'POST',
                 headers: {
@@ -87,9 +92,30 @@ const handleButtonProduct = async (index = -1) => {
             fetchAPI(url, options);
         }else{
             
+            let url = root + "products/" + index;
+            let options = {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(newProduct)
         }
+        fetchAPI(url, options);
     }
+    loadProducts();
 }
+}
+const deleteProduct = async(id) => {
+    let url = root + "products/" + id;
+    let options = {
+        method: 'DELETE',
+        headers:{
+            "Content-Type": 'application/json',
+        }
+    };
+    fetchAPI(url, options);
+    loadProducts();
+} 
 const startJsProducts = () => {
     loadProducts();
     handleButtonProduct();
