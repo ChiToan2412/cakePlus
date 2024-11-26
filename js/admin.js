@@ -7,7 +7,7 @@ const loadProducts = async () => {
     let response = await fetch(root + "products");
     let products = await response.json();
 
-    document.getElementById("allProduct").innerHTML = products.map((item) => {
+    document.getElementById("allProduct").innerHTML = products.map((item)=>{
         let price = parseInt(item.price).toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })
         return `
             <tr>
@@ -44,37 +44,44 @@ const loadCategories = async () => {
 }
 
 
-const handleButtonProduct = async (index) => {
+const handleButtonProduct = async (index = -1) => {
     let button = document.getElementById("btn");
     let res = await fetch(root + "products/" + index);
     let products = await res.json();
-    const { id, name, price, description, category, image } = products
-    console.log(button)
-    if (products) {
-        button.value = 'Sửa sản phẩm'
-        document.getElementById("productId").value = id;
-        document.getElementById("productName").value = name;
-        document.getElementById("productPrice").value = price;
-        document.getElementById("productCategory").value = category
-        document.getElementById("productDescription").value = description
-        img = "";
-        document.getElementById("img").src = '../public/img/' + image
-        console.log(name);
-        // if (addressImg) {
-        //     img = addressImg[addressImg.length - 1];
-        // }
-        button.onclick = () => {
-            const data = {
-                id: document.getElementById("productId").value,
-                name: document.getElementById("productName").value,
-                price: document.getElementById("productPrice").value,
-                category: document.getElementById("productCategory").value,
-                description: document.getElementById("productDescription").value,
-                image: document.getElementById("productDescription").src
-            }
-            let newProduct = { ...data }
-            console.log(newProduct)
-            let url = root + "products/" + index;
+    let product = products.filter((item)=>item.id == index);
+    if(index != -1){  
+        document.getElementById("productId").value = product[0].id;
+        document.getElementById("productName").value = product[0].name;
+        document.getElementById("productPrice").value = product[0].price;
+        document.getElementById("productCategory").value = product[0].category;
+        document.getElementById("productDescription").value = product[0].description;
+        document.getElementById("img").src = "../public/img/"+product[0].image;
+        // console.log(products);
+        console.log(product);
+        button.value = "Sửa";
+    }
+    button.onclick = () => {
+        let id = document.getElementById("productId").value;
+        let name = document.getElementById("productName").value;
+        let price = document.getElementById("productPrice").value;
+        let category = document.getElementById("productCategory").value;
+        let description = document.getElementById("productDescription").value;
+        let img = "";
+        let addressImg = document.getElementById("productImage").value.split("\\");
+        if(addressImg){
+            img = addressImg[addressImg.length-1];
+        }
+        let newProduct = {
+            "id": id,
+            "name": name,
+            "price": price,
+            "category": category,
+            "description": description,
+            "image": img
+        } 
+        console.log(newProduct);
+        if(button.value == "AddProduct"){
+            let url = root + "products/";
             let options = {
                 method: 'PUT',
                 headers: {
@@ -83,104 +90,32 @@ const handleButtonProduct = async (index) => {
                 body: JSON.stringify(newProduct)
             }
             fetchAPI(url, options);
+        }else{
+            
+            let url = root + "products/" + index;
+            let options = {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(newProduct)
         }
-
+        fetchAPI(url, options);
     }
-
+    loadProducts();
 }
-
-const AddProduct = async () => {
-    let id = document.getElementById("productId").value;
-    let name = document.getElementById("productName").value;
-    let price = document.getElementById("productPrice").value;
-    let category = document.getElementById("productCategory").value;
-    let description = document.getElementById("productDescription").value;
-    let img = "";
-    let image = document.getElementById("productImage").value.split("\\");
-    let newProduct = {
-        id,
-        name,
-        price,
-        category,
-        description,
-        image
-    }
-    let url = root + "products/";
-    let options = {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(newProduct)
-    }
-    fetchAPI(url, options);
 }
-
-//     if(index != -1){  
-//         document.getElementById("productId").value = products[index-1].id;
-//         document.getElementById("productName").value = products[index-1].name;
-//         document.getElementById("productPrice").value = products[index-1].price;
-//         document.getElementById("productCategory").value = products[index-1].category;
-//         document.getElementById("productDescription").value = products[index-1].description;
-//         document.getElementById("img").src = "../public/img/"+products[index-1].image;
-//         button.value = "Sửa";
-//     }
-//     button.onclick = () => {
-//         let id = document.getElementById("productId").value;
-//         let name = document.getElementById("productName").value;
-//         let price = document.getElementById("productPrice").value;
-//         let category = document.getElementById("productCategory").value;
-//         let description = document.getElementById("productDescription").value;
-//         let img = "";
-//         let addressImg = document.getElementById("productImage").value.split("\\");
-//         if(addressImg){
-//             img = addressImg[addressImg.length-1];
-//         }
-//         let newProduct = {
-//             "id": id,
-//             "name": name,
-//             "price": price,
-//             "category": category,
-//             "description": description,
-//             "image": img
-//         } 
-//         console.log(newProduct);
-//         if(button.value == "AddProduct"){
-//             let url = root + "products/";
-//             let options = {
-//                 method: 'POST',
-//                 headers: {
-//                     'Content-Type': 'application/json'
-//                 },
-//                 body: JSON.stringify(newProduct)
-//             }
-//             fetchAPI(url, options);
-//         }else{
-
-//             let url = root + "products/" + index;
-//             let options = {
-//                 method: 'PUT',
-//                 headers: {
-//                     'Content-Type': 'application/json'
-//                 },
-//                 body: JSON.stringify(newProduct)
-//         }
-//         fetchAPI(url, options);
-//     }
-loadProducts();
-// }
-
-const deleteProduct = async (id) => {
+const deleteProduct = async(id) => {
     let url = root + "products/" + id;
     let options = {
         method: 'DELETE',
-        headers: {
+        headers:{
             "Content-Type": 'application/json',
         }
     };
     fetchAPI(url, options);
     loadProducts();
-}
+} 
 const startJsProducts = () => {
     loadProducts();
     handleButtonProduct();
