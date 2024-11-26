@@ -60,10 +60,16 @@
     #allProduct {
       line-height: 75px;
     }
+    #describe{
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 250px;
+    }
   </style>
 </head>
 
-<body onload="startJsProducts()">
+<body onload="">
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg">
     <div class="container-fluid">
@@ -179,7 +185,8 @@
         </div>
         <!-- Nút Thêm -->
         <div class="col-md-12 text-center">
-          <input type="button" class="btn btn-primary mt-3" id="btn" value="AddProduct"></input>
+   
+          <input type="button" class="btn btn-primary mt-3" id="btn" onclick="AddProduct();" value="AddProduct"></input>
         </div>
       </div>
     </form>
