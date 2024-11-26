@@ -69,7 +69,7 @@
   </style>
 </head>
 
-<body onload="">
+<body onload="startJsProducts()">
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg">
     <div class="container-fluid">
@@ -167,9 +167,11 @@
           <label for="productCategory" class="form-label">Danh mục</label>
           <select class="form-select" id="productCategory" required>
             <option selected>Chọn danh mục</option>
-            <option value="1">Bánh ngọt</option>
-            <option value="2">Dụng cụ</option>
-            <option value="3">Đồ trang trí</option>
+            <option value="1">Dụng cụ làm bánh</option>
+            <option value="2">Nguyên liệu làm bánh</option>
+            <option value="3">Đồ trang trí bánh</option>
+            <option value="4">Hộp và bao bì</option>
+            <option value="5">Sách hướng dẫn</option>
           </select>
         </div>
         <!-- Giá -->
@@ -186,7 +188,7 @@
         <!-- Nút Thêm -->
         <div class="col-md-12 text-center">
    
-          <input type="button" class="btn btn-primary mt-3" id="btn" onclick="AddProduct();" value="AddProduct"></input>
+          <input type="button" class="btn btn-primary mt-3" id="btn" value="Thêm"></input>
         </div>
       </div>
     </form>

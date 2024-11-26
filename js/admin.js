@@ -7,7 +7,7 @@ const loadProducts = async () => {
     let response = await fetch(root + "products");
     let products = await response.json();
 
-    document.getElementById("allProduct").innerHTML = products.map((item)=>{
+    document.getElementById("allProduct").innerHTML = products.map((item) => {
         let price = parseInt(item.price).toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })
         return `
             <tr>
@@ -35,8 +35,8 @@ const loadCategories = async () => {
                 <td>${item.id}</td>
                 <td>${item.name}</td>
                 <td>
-                <button class="btn btn-sm btn-warning">Sửa</button>
-                <button class="btn btn-sm btn-danger">Xóa</button>
+                <button class="btn btn-sm btn-warning" onclick="handleButtonCategory(${item.id})">Sửa</button>
+                <button class="btn btn-sm btn-danger" onclick="deleteCategory(${item.id})">Xóa</button>
                 </td>
             </tr>
         `;
@@ -46,18 +46,16 @@ const loadCategories = async () => {
 
 const handleButtonProduct = async (index = -1) => {
     let button = document.getElementById("btn");
-    let res = await fetch(root + "products/" + index);
+    let res = await fetch(root + "products");
     let products = await res.json();
-    let product = products.filter((item)=>item.id == index);
-    if(index != -1){  
-        document.getElementById("productId").value = product[0].id;
-        document.getElementById("productName").value = product[0].name;
-        document.getElementById("productPrice").value = product[0].price;
-        document.getElementById("productCategory").value = product[0].category;
-        document.getElementById("productDescription").value = product[0].description;
-        document.getElementById("img").src = "../public/img/"+product[0].image;
+    if (index != -1) {
+        document.getElementById("productId").value = products.id;
+        document.getElementById("productName").value = products.name;
+        document.getElementById("productPrice").value = products.price;
+        document.getElementById("productCategory").value = products.category;
+        document.getElementById("productDescription").value = products.description;
+        document.getElementById("img").src = "../public/img/" + products.image;
         // console.log(products);
-        console.log(product);
         button.value = "Sửa";
     }
     button.onclick = () => {
@@ -68,8 +66,8 @@ const handleButtonProduct = async (index = -1) => {
         let description = document.getElementById("productDescription").value;
         let img = "";
         let addressImg = document.getElementById("productImage").value.split("\\");
-        if(addressImg){
-            img = addressImg[addressImg.length-1];
+        if (addressImg) {
+            img = addressImg[addressImg.length - 1];
         }
         let newProduct = {
             "id": id,
@@ -78,10 +76,21 @@ const handleButtonProduct = async (index = -1) => {
             "category": category,
             "description": description,
             "image": img
-        } 
+        }
         console.log(newProduct);
-        if(button.value == "AddProduct"){
+        if (button.value == "Thêm") {
+            console.log("Product");
             let url = root + "products/";
+            let options = {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(newProduct)
+            }
+            fetchAPI(url, options);
+        } else {
+            let url = root + "products/" + index;
             let options = {
                 method: 'PUT',
                 headers: {
@@ -90,36 +99,79 @@ const handleButtonProduct = async (index = -1) => {
                 body: JSON.stringify(newProduct)
             }
             fetchAPI(url, options);
-        }else{
-            
-            let url = root + "products/" + index;
-            let options = {
-                method: 'PUT',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(newProduct)
         }
-        fetchAPI(url, options);
+        loadProducts();
     }
-    loadProducts();
 }
-}
-const deleteProduct = async(id) => {
+const deleteProduct = async (id) => {
     let url = root + "products/" + id;
     let options = {
         method: 'DELETE',
-        headers:{
+        headers: {
             "Content-Type": 'application/json',
         }
     };
     fetchAPI(url, options);
     loadProducts();
-} 
+}
+const handleButtonCategory = async (index = -1) => {
+    let button = document.getElementById("btn");
+    let res = await fetch(root + "products");
+    let products = await res.json();
+    if (index != -1) {
+        document.getElementById("productId").value = products.id;
+        document.getElementById("productName").value = products.name;
+        button.value = "Sửa";
+    }
+    button.onclick = () => {
+        let id = document.getElementById("categoryid").value;
+        let name = document.getElementById("categoryName").value;
+        let newCategory = {
+            "id": id,
+            "name": name
+        }
+        console.log(newCategory);
+        if (button.value == "Thêm") {
+            console.log("Product");
+            let url = root + "categories/";
+            let options = {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(newCategory)
+            }
+            fetchAPI(url, options);
+        } else {
+            let url = root + "categories/" + index;
+            let options = {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(newCategory)
+            }
+            fetchAPI(url, options);
+        }
+        loadProducts();
+    }
+}
+const deleteCategory = async (id) => {
+    let url = root + "categories/" + id;
+    let options = {
+        method: 'DELETE',
+        headers: {
+            "Content-Type": 'application/json',
+        }
+    };
+    fetchAPI(url, options);
+    loadProducts();
+}
 const startJsProducts = () => {
     loadProducts();
     handleButtonProduct();
 }
 const startJsCategories = () => {
     loadCategories();
+    handleButtonCategory();
 }

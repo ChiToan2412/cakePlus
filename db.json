@@ -3,8 +3,8 @@
     {
       "id": "1",
       "name": "Rây lộc đa năng",
-      "price": 200000,
-      "category": 1,
+      "price": "200000",
+      "category": "1",
       "description": "",
       "image": "ray-loc-da-nang.jpg"
     },
@@ -25,14 +25,6 @@
       "image": "chai-dung-nuoc-sot-mieng-nho.jpg"
     },
     {
-      "id": "5",
-      "name": "Socola chip đen Vanhouten",
-      "price": "18000",
-      "category": "1",
-      "description": "",
-      "image": "socola-chip.jpg"
-    },
-    {
       "id": "7",
       "name": "Hộp đựng bánh gato 15 cái",
       "price": 30000,
@@ -47,14 +39,6 @@
       "category": "3",
       "description": "",
       "image": "hat-duong.jpg"
-    },
-    {
-      "id": "2",
-      "name": "Rây lọc đa năng",
-      "price": "50000",
-      "category": "2",
-      "description": "",
-      "image": "ray-loc-da-nang.jpg"
     }
   ],
   "categories": [
