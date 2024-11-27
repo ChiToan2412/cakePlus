@@ -1,14 +1,6 @@
 {
   "products": [
     {
-      "id": "1",
-      "name": "Rây lộc đa năng",
-      "price": "200000",
-      "category": "1",
-      "description": "",
-      "image": "ray-loc-da-nang.jpg"
-    },
-    {
       "id": "3",
       "name": "Dao cắt bánh mì 12 inch",
       "price": 45000,
@@ -39,6 +31,22 @@
       "category": "3",
       "description": "",
       "image": "hat-duong.jpg"
+    },
+    {
+      "id": "8",
+      "name": "Sách hướng dẫn làm bánh",
+      "price": "123",
+      "category": "5",
+      "description": "",
+      "image": "sach-huong-dan-lam-banh.jpg"
+    },
+    {
+      "id": "1",
+      "name": "Rây lộc đa năng",
+      "price": "100000",
+      "category": "1",
+      "description": "",
+      "image": "ray-loc-da-nang.jpg"
     }
   ],
   "categories": [

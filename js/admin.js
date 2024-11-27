@@ -48,13 +48,19 @@ const handleButtonProduct = async (index = -1) => {
     let button = document.getElementById("btn");
     let res = await fetch(root + "products");
     let products = await res.json();
+    let product;
+    products.forEach(element => {
+            if (element.id == index) {
+                product = element;
+            }
+    });
     if (index != -1) {
-        document.getElementById("productId").value = products.id;
-        document.getElementById("productName").value = products.name;
-        document.getElementById("productPrice").value = products.price;
-        document.getElementById("productCategory").value = products.category;
-        document.getElementById("productDescription").value = products.description;
-        document.getElementById("img").src = "../public/img/" + products.image;
+        document.getElementById("productId").value = product.id;
+        document.getElementById("productName").value = product.name;
+        document.getElementById("productPrice").value = product.price;
+        document.getElementById("productCategory").value = product.category;
+        document.getElementById("productDescription").value = product.description;
+        document.getElementById("img").src = "../public/img/" + product.image;
         // console.log(products);
         button.value = "Sửa";
     }
