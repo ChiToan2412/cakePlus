@@ -1,8 +1,4 @@
 const root = "http://localhost:3000/";
-const fetchAPI = async (url, option) =>{
-    let response = await fetch(url, option);
-    return await response.json();
-}
 const loadProducts = async () => {
     let response = await fetch(root + "products");
     let products = await response.json();
