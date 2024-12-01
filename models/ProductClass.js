@@ -28,73 +28,30 @@ class Products{
     }
     
     
-    
-    
-    static handleButtonProduct = async (index = -1) => {
-        let button = document.getElementById("btn");
-        let res = await fetch(root + "products");
-        let products = await res.json();
-        let product;
-        products.forEach(element => {
-                if (element.id == index) {
-                    product = element;
-                }
-        });
-        if (index != -1) {
-            document.getElementById("productId").value = product.id;
-            document.getElementById("productName").value = product.name;
-            document.getElementById("productPrice").value = product.price;
-            document.getElementById("productCategory").value = product.category;
-            document.getElementById("productDescription").value = product.description;
-            document.getElementById("img").src = "../public/img/" + product.image;
-            // console.log(products);
-            button.value = "Sửa";
+    static addProduct = async (data) => {
+        let url = root + "products/";
+        let options = {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
         }
-        button.onclick = () => {
-            let id = document.getElementById("productId").value;
-            let name = document.getElementById("productName").value;
-            let price = document.getElementById("productPrice").value;
-            let category = document.getElementById("productCategory").value;
-            let description = document.getElementById("productDescription").value;
-            let img = "";
-            let addressImg = document.getElementById("productImage").value.split("\\");
-            if (addressImg) {
-                img = addressImg[addressImg.length - 1];
-            }
-            let newProduct = {
-                "id": id,
-                "name": name,
-                "price": price,
-                "category": category,
-                "description": description,
-                "image": img
-            }
-            console.log(newProduct);
-            if (button.value == "Thêm") {
-                console.log("Product");
-                let url = root + "products/";
-                let options = {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(newProduct)
-                }
-                fetchAPI(url, options);
-            } else {
-                let url = root + "products/" + index;
-                let options = {
-                    method: 'PUT',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(newProduct)
-                }
-                fetchAPI(url, options);
-            }
-            loadProducts();
-        }
+        fetch(url, options);
     }
+    static editProduct = async (id, data) => {
+        let url = root + "products/" + id;
+        let options = {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        }
+        fetch(url, options);
+    }
+    
+    
     static deleteProduct = async (id) => {
         let url = root + "products/" + id;
         let options = {
@@ -105,6 +62,11 @@ class Products{
         };
         fetchAPI(url, options);
         loadProducts();
+    }
+    static productById = async (id) => {
+        let url = root + "products/" + id;
+        let response = await fetch(url);
+        return await response.json();
     }
 }
 export default Products;

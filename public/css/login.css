@@ -1,96 +1,94 @@
-:root {
-    --main-color: #FFF8E1;
-    --text-color: #8B4513;
-    --hover-color: #FFD700;
-    --button-color: #FFB6C1;
-    --highlight-color: #DC143C;
-  }
-  
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  body {
-    font-family: Arial, sans-serif;
-    background-color: var(--main-color);
-    color: var(--text-color);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-  }
-  
-  .container {
-    display: flex;
-    gap: 2rem;
-  }
-  
-  .form-container {
-    background: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 2rem;
-    width: 400px;
-    text-align: center;
-  }
-  
-  h2 {
-    color: var(--text-color);
-    margin-bottom: 1rem;
-  }
-  
-  label {
-    display: block;
-    font-size: 0.9rem;
-    margin-bottom: 0.5rem;
-    text-align: left;
-  }
-  
-  input[type="email"],
-  input[type="password"],
-  input[type="text"] {
-    width: 100%;
-    padding: 0.5rem;
-    margin-bottom: 1rem;
-    border: 1px solid var(--hover-color);
-    border-radius: 4px;
-    font-size: 1rem;
-  }
-  
-  input:focus {
-    outline: none;
-    border-color: var(--highlight-color);
-  }
-  
-  .btn {
-    background-color: var(--button-color);
-    color: #fff;
-    padding: 0.7rem;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 1rem;
-    transition: background-color 0.3s ease;
-    width: 100%;
-  }
-  
-  .btn:hover {
-    background-color: var(--highlight-color);
-  }
-  
-  p {
-    margin-top: 1rem;
-    font-size: 0.9rem;
-  }
-  
-  a {
-    color: var(--highlight-color);
-    text-decoration: none;
-  }
-  
-  a:hover {
-    color: var(--hover-color);
-  }
-  
+/* styles.css */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #FFF8E1;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.login-box {
+  background: #FFFFFF;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px 30px;
+  width: 350px;
+  text-align: center;
+}
+
+.login-box h2 {
+  color: #8B4513;
+  margin-bottom: 20px;
+}
+
+.input-group {
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+.input-group label {
+  display: block;
+  color: #8B4513;
+  margin-bottom: 5px;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.btn-login {
+  background-color: #FFB6C1;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.btn-login:hover {
+  background-color: #FFD700;
+}
+
+.divider {
+  margin: 20px 0;
+  color: #8B4513;
+  font-size: 14px;
+}
+
+.btn-google {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #FFF8E1;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  width: 100%;
+}
+
+.btn-google img {
+  height: 20px;
+  margin-right: 10px;
+}
+
+.btn-google:hover {
+  background-color: #FFD700;
+}

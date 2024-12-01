@@ -20,54 +20,27 @@ class Categories{
             `;
         }).join("");
     }
-    static handleButtonCategory = async (index = -1) => {
-        let button = document.getElementById("btnCategory");
-        let res = await fetch(root + "categories");
-        let categories = await res.json();
-        let category;
-        categories.forEach(element => {
-                if (element.id == index) {
-                    category = element;
-                }
-        });
-        if (index != -1) {
-            console.log(category);
-            document.getElementById("categoryid").value = category.id;
-            document.getElementById("categoryName").value = category.name;
-            button.value = "Sửa";
+    static addCategory = async (data) => {
+        let url = root + "categories/";
+        let options = {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
         }
-        button.onclick = () => {
-            let id = document.getElementById("categoryid").value;
-            let name = document.getElementById("categoryName").value;
-            let newCategory = {
-                "id": id,
-                "name": name
-            }
-            console.log(newCategory); 
-            if (button.value == "Thêm") {
-                console.log("Product");
-                let url = root + "categories/";
-                let options = {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(newCategory)
-                }
-                fetchAPI(url, options);
-            } else {
-                let url = root + "categories/" + index;
-                let options = {
-                    method: 'PUT',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(newCategory)
-                }
-                fetchAPI(url, options);
-            }
-            loadProducts();
+        fetch(url, options);
+    }
+    static editCategory = async (id, data) => {
+        let url = root + "categories/" + id;
+        let options = {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
         }
+        fetch(url, options);
     }
     static deleteCategory = async (id) => {
         let url = root + "categories/" + id;
@@ -79,6 +52,11 @@ class Categories{
         };
         fetchAPI(url, options);
         loadProducts();
+    }
+    static categoryById = async (id) => {
+        let url = root + "categories/" + id;
+        let response = await fetch(url);
+        return await response.json();
     }
 }
 export default Categories;

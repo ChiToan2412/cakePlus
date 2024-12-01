@@ -3,42 +3,50 @@
     {
       "id": "3",
       "name": "Dao cắt bánh mì 12 inch",
-      "price": 45000,
-      "category": 1,
-      "description": "",
-      "image": "dao-cat-banh-mi-12inch.jpg"
+      "image": "dao-cat-banh-mi-12inch.jpg",
+      "price": "45000",
+      "description": "dao cắt bánh giúp bạn cắt những chiếc bánh của mình làm ra rất gọn gàn ",
+      "category": "1"
     },
     {
       "id": "4",
       "name": "Chai đựng nước sốt miệng nhỏ",
-      "price": 25000,
-      "category": 1,
-      "description": "",
-      "image": "chai-dung-nuoc-sot-mieng-nho.jpg"
+      "image": "chai-dung-nuoc-sot-mieng-nho.jpg",
+      "price": "25000",
+      "description": "Chai đựng sốt miệng nhỏ giúp bạn có thể đựng nước sốt rất tiện lợi",
+      "category": "1"
     },
     {
       "id": "7",
       "name": "Hộp đựng bánh gato 15 cái",
-      "price": 30000,
-      "category": 4,
-      "description": "",
-      "image": "hop-banh-gato.jpg"
+      "image": "hop-banh-gato.jpg",
+      "price": "30000",
+      "description": "Bạnh có thể bảo quản chiếc bánh của mình trong chiếc hộp này ",
+      "category": "4"
     },
     {
       "id": "6",
       "name": "Hạt đường trang trí bánh 50G",
+      "image": "hat-duong.jpg",
       "price": "20000",
-      "category": "3",
-      "description": "",
-      "image": "hat-duong.jpg"
+      "description": "Hạt đường đủ màu giúp bạn trang trí chiếc bánh của mình thật đẹp",
+      "category": "3"
     },
     {
       "id": "1",
       "name": "Sách hướng dẫn làm bánh",
+      "image": "sach-huong-dan-lam-banh.jpg",
       "price": "200000",
-      "category": "5",
-      "description": "",
-      "image": "sach-huong-dan-lam-banh.jpg"
+      "description": "Đây là sách làm bánh ",
+      "category": "5"
+    },
+    {
+      "id": "2",
+      "name": "Socola chip đen Vanhouten",
+      "image": "socola-chip.jpg",
+      "price": "20000",
+      "description": "Socola là nguyên liệu giúp chiếc bánh của bạn thơm và ngọt ngào hơn ",
+      "category": "2"
     }
   ],
   "categories": [
@@ -61,6 +69,26 @@
     {
       "id": "5",
       "name": "Sách hướng dẫn làm bánh"
+    }
+  ],
+  "users": [
+    {
+      "id": "1",
+      "name": "Admin",
+      "email": "admin@example.com",
+      "password": "admin123"
+    },
+    {
+      "id": "c93a",
+      "username": "Danh Nguyễn Chí Toàn",
+      "password": "123",
+      "email": "toan24122004@gmail.com"
+    },
+    {
+      "id": "f786",
+      "username": "toandncps39584@gmail.com",
+      "password": "123",
+      "email": "toandncps39584@gmail.com"
     }
   ]
 }

@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chi Tiết Sản Phẩm</title>
+    <!-- Bootstrap CSS -->
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"> -->
+    <link rel="stylesheet" href="public/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Custom CSS -->
+    <style>
+        /* Tổng thể container */
+        #product-detail-container {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 30px;
+            background: #FFF8E1;
+            /* Màu nền nhẹ */
+            border-radius: 12px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+            /* Bóng đổ */
+            font-family: 'Arial', sans-serif;
+            color: #4A3F35;
+            /* Màu chữ tổng thể */
+        }
+
+        /* Flexbox cho bố cục */
+        .product-detail {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Phần hình ảnh sản phẩm */
+        .product-image {
+            flex: 1 1 50%;
+            text-align: center;
+        }
+
+        .product-image img {
+            width: 100%;
+            max-height: 500px;
+            object-fit: cover;
+            /* Giữ hình ảnh không bị méo */
+            border-radius: 10px;
+            border: 2px solid #FFB6C1;
+            /* Viền nhẹ cho ảnh */
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            /* Bóng đổ nổi bật */
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .product-image img:hover {
+            transform: scale(1.03);
+            /* Hiệu ứng zoom nhẹ khi di chuột */
+        }
+
+        /* Thông tin sản phẩm */
+        .product-info {
+            flex: 1 1 45%;
+            text-align: left;
+        }
+
+        .product-name {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #8B4513;
+            /* Màu chữ chính */
+            margin-bottom: 15px;
+            line-height: 1.2;
+        }
+
+        .product-price {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #DC143C;
+            /* Màu đỏ nổi bật */
+            margin-bottom: 20px;
+        }
+
+        .product-description {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #4A3F35;
+            /* Màu chữ dịu nhẹ hơn */
+            margin-bottom: 25px;
+        }
+
+        /* Danh sách tính năng sản phẩm */
+        .product-features {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 20px;
+        }
+
+        .product-features li {
+            font-size: 1rem;
+            margin: 8px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .product-features li::before {
+            content: "✔";
+            color: #DC143C;
+            /* Màu đỏ cho dấu tích */
+            font-weight: bold;
+        }
+
+        /* Nút thêm vào giỏ hàng */
+        .btn-add-to-cart {
+            display: inline-block;
+            background-color: #FFB6C1;
+            /* Màu nền nút */
+            color: #fff;
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-add-to-cart:hover {
+            background-color: #FF69B4;
+            /* Đậm hơn khi hover */
+            transform: translateY(-2px);
+            /* Hiệu ứng nhấn nút */
+        }
+
+        /* Responsive cho màn hình nhỏ */
+        @media (max-width: 768px) {
+            .product-detail {
+                flex-direction: column;
+            }
+
+            .product-image,
+            .product-info {
+                flex: 1 1 100%;
+            }
+
+            .product-name {
+                font-size: 2.2rem;
+            }
+
+            .product-price {
+                font-size: 1.8rem;
+            }
+
+            .btn-add-to-cart {
+                font-size: 1rem;
+                padding: 10px 20px;
+            }
+        }
+    </style>
+</head>
+
+<body onload="loadProductById()">
+    <header>
+        <div class="container">
+            <div class="col4">
+                <img src="public/img/CakePlus-logo.png" alt="">
+            </div>
+            <div class="col4">
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Trang chủ</a></li>
+                        <li><a href="">Sản phẩm</a></li>
+                        <li><a href="">Liên hệ</a></li>
+                        <li><a href="">Tin tức</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="col4">
+                <a href="cart.html" id="displayCart"></a>
+                <ul>
+                    <i class="fa-solid fa-user"></i><br>Tài khoản
+                    <li>
+                        <ul>
+                            <li><a href="login.html">Đăng nhập</a></li>
+                            <li><a href="register.html">đăng ký</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <!-- Nội dung -->
+    <div id="product-detail-container" class="container">
+        <div class="product-detail" id="product-detail">
+
+        </div>
+    </div>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
